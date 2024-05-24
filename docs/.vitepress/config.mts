@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,6 +7,18 @@ export default defineConfig({
   description: "",
   lastUpdated: true,
   base: '/knowledge-base/',
+
+  vite: {
+    plugins: [
+      // add plugin
+      AutoSidebar(
+        {
+          titleFromFile: true,
+          //ignoreIndexItem: true,
+        }
+      ),
+    ]
+  },
 
   head: [
     ['link', { rel: 'icon', href: 'https://img2.moeblog.vip/images/vcxT.png' }]
@@ -16,6 +29,10 @@ export default defineConfig({
 
     logo: 'https://img2.moeblog.vip/images/vcxT.png',
 
+    search: {
+      provider: 'local'
+    },
+
     nav: [
       { text: '主页', link: '/' },
       { text: '笔记', link: '/note' }
@@ -23,7 +40,7 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: '说明',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
@@ -32,7 +49,8 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'x', link: 'https://x.com/verymoes' }
     ],
 
     editLink: {
@@ -46,3 +64,4 @@ export default defineConfig({
     }
   }
 })
+
