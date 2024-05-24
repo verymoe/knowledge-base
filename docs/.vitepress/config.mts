@@ -5,6 +5,7 @@ export default defineConfig({
   title: "白の知识库",
   description: "",
   lastUpdated: true,
+  base: '/knowledge-base/',
 
   head: [
     ['link', { rel: 'icon', href: 'https://img2.moeblog.vip/images/vcxT.png' }]
