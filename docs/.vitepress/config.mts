@@ -38,16 +38,6 @@ export default defineConfig({
       { text: '笔记', link: '/note' }
     ],
 
-    sidebar: [
-      {
-        text: '说明',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
       { icon: 'x', link: 'https://x.com/verymoes' }
