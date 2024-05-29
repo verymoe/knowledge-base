@@ -77,9 +77,120 @@ tv_hello.setText("Hello World!");
 
 ## 视图基础
 
-- 设置视图的尺寸
-- 设置视图的间距
-- 设置视图的对齐方式
+### 设置视图的尺寸
+参考：[ViewGroup.LayoutParams｜Android Studio Developers](https://developer.android.com/reference/android/view/ViewGroup.LayoutParams)
+1. **固定尺寸（dimension）**:
+   - 通过设置 `layout_width` 和 `layout_height` 属性为一个具体的尺寸值（如 "12dip"）来指定视图的宽度和高度。
+   ``` Xml
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你好，世界"/>
+   ```
+   ![viUK.png](https://img2.moeblog.vip/images/viUK.png)
+2. **相对尺寸（wrap_content）**:
+   - 将 `layout_width` 和 `layout_height` 属性设置为 `wrap_content`，使视图的尺寸仅足以包裹其内容。
+   ``` Xml
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#66ccff"/>
+   ```
+    ![vgzt.png](https://img2.moeblog.vip/images/vgzt.png)
+
+3. **填充父容器（match_parent）**:
+   - 将 `layout_width` 和 `layout_height` 属性设置为 `match_parent`，使视图的尺寸与其父容器相同（减去内边距）。
+   ``` Xml
+   <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:padding="30dp"
+        android:background="#66ccff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F44336"/>
+    </LinearLayout>
+   ```
+   ![vH6W.png](https://img2.moeblog.vip/images/vH6W.png)
+
+### 设置视图的间距
+- 内边距 （它指定了当前视图与周围**平级**视图之间的距离）
+    1. **通用内边距属性**:
+       - `padding`：设置视图所有边的内边距。
+       - `paddingHorizontal`：设置视图水平方向（左右）的内边距。
+       - `paddingVertical`：设置视图垂直方向（上下）的内边距。
+
+    2. **单独设置内边距**:
+       - `paddingLeft`：设置视图左边的内边距。
+       - `paddingTop`：设置视图上边的内边距。
+       - `paddingRight`：设置视图右边的内边距。
+       - `paddingBottom`：设置视图下边的内边距。
+
+    3. **方向性内边距**:
+       - `paddingStart`：设置视图开始方向（根据语言方向）的内边距。
+       - `paddingEnd`：设置视图结束方向（根据语言方向）的内边距。
+
+- 外边距（它指定了当前视图与内部**下级**视图之间的距离）
+    1. **通用外边距属性**:
+       - `layout_margin`：设置视图所有边的外边距。
+       - `layout_marginHorizontal`：设置视图水平方向（左右）的外边距。
+       - `layout_marginVertical`：设置视图垂直方向（上下）的外边距。
+
+    2. **单独设置外边距**:
+
+       - `layout_marginLeft`：设置视图左边的外边距。
+       - `layout_marginTop`：设置视图上边的外边距。
+       - `layout_marginRight`：设置视图右边的外边距。
+       - `layout_marginBottom`：设置视图下边的外边距。
+
+    3. **方向性外边距**:
+
+       - `layout_marginStart`：设置视图开始方向（根据语言方向）的外边距。
+       - `layout_marginEnd`：设置视图结束方向（根据语言方向）的外边距。
+
+    **注意**: 
+
+    - 如果同时设置了通用外边距属性和单独设置的外边距属性，则通用外边距属性优先生效。
+    - 方向性外边距属性用于支持不同语言方向的布局，例如，在从右到左的语言中，`layout_marginStart` 对应的是右侧外边距，而 `layout_marginEnd` 对应的是左侧外边距。
+
+``` Xml
+<!--内边距 30dp 的蓝色方块-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#66ccff"
+        android:padding="30dp">
+
+        <!--黄色方块-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFEB3B">
+
+            <!--外边距 30dp 的红色方块-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="30dp"
+                android:background="#F44336">
+
+                <!--右侧外边距 100dp 的绿色方块-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="100dp"
+                    android:background="#8BC34A" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+```
+![vmaH.png](https://img2.moeblog.vip/images/vmaH.png)
+
+### 设置视图的对齐方式
+
+
 
 ## 常用布局
 
