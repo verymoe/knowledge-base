@@ -3,11 +3,12 @@
 在安卓原生开发中，常用SharedPreferences和SQLite进行数据持久化。SharedPreferences适用于简单的键值对存储，而SQLite则是一个功能强大的关系型数据库，用于存储大量复杂数据。比如QQ和微信就使用SQLite来储存聊天记录，而简单的用户设置（如主题颜色），则通常储存于Shared Preferences。
 
 ## SharedPreferences 共享偏好设置
-"SharedPreferences" 可以翻译为 "共享偏好设置" 或者简称为 "偏好设置"。
-你可以将SharedPreferences视为一个可持久化读写的XML文件。
 
-### 简单使用
-1. 初始化共享偏好设置
+> [!TIP]
+> "SharedPreferences" 可以翻译为 "共享偏好设置" 或者简称为 "偏好设置"。
+> 你可以将SharedPreferences视为一个可持久化读写的XML文件。
+
+### 初始化共享偏好设置
 ```java
 // 获取 SharedPreferences 实例
 SharedPreferences sharedPreferences = getSharedPreferences("com.example.myapp.PREFERENCE_FILE_KEY", Context.MODE_PRIVATE);
@@ -18,7 +19,7 @@ SharedPreferences sharedPreferences = getSharedPreferences("com.example.myapp.PR
 
 Context.MODE_PRIVATE 表示只有你的应用可以访问。也有别的模式，但是基本用不到，这里就不再过多叙述。
 
-2. 写入共享偏好设置
+### 写入共享偏好设置
 ```java
 // 获取 SharedPreferences.Editor 实例
 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -51,7 +52,7 @@ editor.apply();
 | `commit()`                          | 同步提交数据修改，会阻塞当前线程直到提交完成 | `editor.commit();`                         |
 | `apply()`                           | 异步提交数据修改，不会阻塞当前线程，性能更好 | `editor.apply();`                          |
 
-3. 读取共享偏好设置
+### 读取共享偏好设置
 
 ```java
 // 读取数据，默认值是true
@@ -78,11 +79,11 @@ boolean isFirstTime = sharedPreferences.getBoolean(KEY_FIRST_TIME, true);
 | `contains(String key)`                      | 检查是否包含指定键                             | `boolean containsUsername = sharedPreferences.contains("username");` |
 | `edit()`                                   | 获取 SharedPreferences.Editor 实例           | `SharedPreferences.Editor editor = sharedPreferences.edit();` |
 
-# SQlite
+## SQlite
 
 来日再补充这个版块，博主目前暂未使用和学习SQLite
 
-# DataStore
+## DataStore
 
 DataStore 是一种新的数据存储解决方案，用于替代传统的 SharedPreferences。它是由 Google 在 Android Jetpack 库中推出的，旨在提供更现代化、类型安全和异步操作支持的数据存储选项。
 
